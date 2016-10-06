@@ -1,0 +1,535 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE rdf:RDF [
+	 <!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+	 <!ENTITY rdf_ 'http://protege.stanford.edu/rdf'>
+	 <!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+]>
+<rdf:RDF xmlns:rdf="&rdf;"
+	 xmlns:rdf_="&rdf_;"
+	 xmlns:rdfs="&rdfs;">
+<rdf:Property rdf:about="&rdf_;SSN"
+	 rdfs:comment="Social Security Number"
+	 rdfs:label="SSN">
+	<rdfs:domain rdf:resource="&rdf_;staff"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;associated_mission"
+	 rdfs:label="associated_mission">
+	<rdfs:domain rdf:resource="&rdf_;experiment"/>
+	<rdfs:range rdf:resource="&rdf_;mission"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;astronaut"
+	 rdfs:label="astronaut">
+	<rdfs:subClassOf rdf:resource="&rdf_;staff"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;atomic"
+	 rdfs:label="atomic">
+	<rdfs:subClassOf rdf:resource="&rdf_;basic_type"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;basic_type"
+	 rdfs:label="basic_type">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;biography"
+	 rdfs:label="biography">
+	<rdfs:domain rdf:resource="&rdf_;staff"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;booster"
+	 rdfs:label="booster">
+	<rdfs:subClassOf rdf:resource="&rdf_;equipment"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;booster_chain"
+	 rdfs:label="booster_chain">
+	<rdfs:range rdf:resource="&rdf_;booster"/>
+	<rdfs:domain rdf:resource="&rdf_;shuttle"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;booster_for"
+	 rdfs:label="booster_for">
+	<rdfs:domain rdf:resource="&rdf_;booster"/>
+	<rdfs:range rdf:resource="&rdf_;shuttle"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;cargo"
+	 rdfs:comment="The shuttle can carry mission cargo."
+	 rdfs:label="cargo">
+	<rdfs:range rdf:resource="&rdf_;equipment"/>
+	<rdfs:domain rdf:resource="&rdf_;mission"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;chief_tester"
+	 rdfs:label="chief_tester">
+	<rdfs:range rdf:resource="&rdf_;staff"/>
+	<rdfs:domain rdf:resource="&rdf_;test"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;commanded"
+	 rdfs:label="commanded">
+	<rdfs:domain rdf:resource="&rdf_;astronaut"/>
+	<rdfs:range rdf:resource="&rdfs;Resource"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;commander"
+	 rdfs:label="commander">
+	<rdfs:range rdf:resource="&rdf_;astronaut"/>
+	<rdfs:domain rdf:resource="&rdf_;mission_crew"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;computer_image"
+	 rdfs:label="computer_image">
+	<rdfs:subClassOf rdf:resource="&rdf_;instrument_experience_data"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;crew"
+	 rdfs:comment="Crew for this particular mission."
+	 rdfs:label="crew">
+	<rdfs:domain rdf:resource="&rdf_;mission"/>
+	<rdfs:range rdf:resource="&rdf_;mission_crew"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;crew_of"
+	 rdfs:label="crew_of">
+	<rdfs:range rdf:resource="&rdf_;mission"/>
+	<rdfs:domain rdf:resource="&rdf_;mission_crew"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;current_mission"
+	 rdfs:label="current_mission">
+	<rdfs:range rdf:resource="&rdf_;mission"/>
+	<rdfs:domain rdf:resource="&rdf_;shuttle"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;data"
+	 rdfs:label="data">
+	<rdfs:subClassOf rdf:resource="&rdf_;basic_type"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;date"
+	 rdfs:label="date">
+	<rdfs:subClassOf rdf:resource="&rdf_;atomic"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;date_of_birth"
+	 rdfs:label="date_of_birth">
+	<rdfs:range rdf:resource="&rdf_;date"/>
+	<rdfs:domain rdf:resource="&rdf_;staff"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;day"
+	 rdfs:comment="Day of the week."
+	 rdfs:label="day">
+	<rdfs:domain rdf:resource="&rdf_;date"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;day_of_month"
+	 rdfs:label="day_of_month">
+	<rdfs:domain rdf:resource="&rdf_;date"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;description"
+	 rdfs:label="description">
+	<rdfs:domain rdf:resource="&rdf_;equipment"/>
+	<rdfs:domain rdf:resource="&rdf_;mission"/>
+	<rdfs:domain rdf:resource="&rdf_;shuttle_mission_data"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;email"
+	 rdfs:label="email">
+	<rdfs:domain rdf:resource="&rdf_;principal_investigator"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;equipment"
+	 rdfs:label="equipment">
+	<rdfs:subClassOf rdf:resource="&rdf_;basic_type"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;equipment_data"
+	 rdfs:label="equipment_data">
+	<rdfs:subClassOf rdf:resource="&rdf_;data"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;equipment_profile"
+	 rdfs:label="equipment_profile">
+	<rdfs:subClassOf rdf:resource="&rdf_;specs"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;experiment"
+	 rdfs:label="experiment">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;experimental_data_runs"
+	 rdfs:comment="The actual data produced by the experiment."
+	 rdfs:label="experimental_data_runs">
+	<rdfs:range rdf:resource="&rdf_;data"/>
+	<rdfs:domain rdf:resource="&rdf_;experiment"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;exploratory_mission"
+	 rdfs:label="exploratory_mission">
+	<rdfs:subClassOf rdf:resource="&rdf_;mission"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;fax_number"
+	 rdfs:label="fax_number">
+	<rdfs:domain rdf:resource="&rdf_;principal_investigator"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;flew_on"
+	 rdfs:label="flew_on">
+	<rdfs:comment>The astronaut flew on this mission but was nto a direct member of the NASA team</rdfs:comment>
+	<rdfs:domain rdf:resource="&rdf_;astronaut"/>
+	<rdfs:range rdf:resource="&rdf_;mission_crew"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;fuel_chain"
+	 rdfs:label="fuel_chain">
+	<rdfs:range rdf:resource="&rdf_;fuel_tank"/>
+	<rdfs:domain rdf:resource="&rdf_;shuttle"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;fuel_tank"
+	 rdfs:label="fuel_tank">
+	<rdfs:subClassOf rdf:resource="&rdf_;equipment"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;goal"
+	 rdfs:label="goal">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;graduate_assist"
+	 rdfs:label="graduate_assist">
+	<rdfs:subClassOf rdf:resource="&rdf_;ground"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;ground"
+	 rdfs:label="ground">
+	<rdfs:subClassOf rdf:resource="&rdf_;staff"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;heat_resistance"
+	 rdfs:label="heat_resistance">
+	<rdfs:subClassOf rdf:resource="&rdf_;test"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;home_institution"
+	 rdfs:label="home_institution">
+	<rdfs:domain rdf:resource="&rdf_;principal_investigator"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;hull_integrity"
+	 rdfs:label="hull_integrity">
+	<rdfs:subClassOf rdf:resource="&rdf_;test"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;id_number"
+	 rdfs:comment="The ID number for NASA internal records."
+	 rdfs:label="id_number">
+	<rdfs:domain rdf:resource="&rdf_;equipment"/>
+	<rdfs:domain rdf:resource="&rdf_;experiment"/>
+	<rdfs:domain rdf:resource="&rdf_;mission"/>
+	<rdfs:domain rdf:resource="&rdf_;principal_investigator"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;in_use"
+	 rdfs:label="in_use">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;institution"
+	 rdfs:label="institution">
+	<rdfs:domain rdf:resource="&rdf_;ground"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;instrument_configuration_data"
+	 rdfs:label="instrument_configuration_data">
+	<rdfs:subClassOf rdf:resource="&rdf_;data"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;instrument_experience_data"
+	 rdfs:label="instrument_experience_data">
+	<rdfs:subClassOf rdf:resource="&rdf_;data"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;itsData"
+	 rdfs:label="itsData">
+	<rdfs:range rdf:resource="&rdf_;data"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;itsNav"
+	 rdfs:label="itsNav">
+	<rdfs:range rdf:resource="&rdf_;navigation_system"/>
+	<rdfs:domain rdf:resource="&rdf_;rocket"/>
+	<rdfs:domain rdf:resource="&rdf_;satellite"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;landscape_sensory"
+	 rdfs:label="landscape_sensory">
+	<rdfs:subClassOf rdf:resource="&rdf_;instrument_experience_data"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;laser"
+	 rdfs:label="laser">
+	<rdfs:subClassOf rdf:resource="&rdf_;instrument_configuration_data"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;launch_date"
+	 rdfs:label="launch_date">
+	<rdfs:range rdf:resource="&rdf_;date"/>
+	<rdfs:domain rdf:resource="&rdf_;mission"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;launch_history"
+	 rdfs:label="launch_history">
+	<rdfs:range rdf:resource="&rdf_;date"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;launch_vehicle"
+	 rdfs:label="launch_vehicle">
+	<rdfs:range rdf:resource="&rdf_;equipment"/>
+	<rdfs:domain rdf:resource="&rdf_;mission"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;launched_in"
+	 rdfs:label="launched_in">
+	<rdfs:domain rdf:resource="&rdf_;shuttle"/>
+	<rdfs:range rdf:resource="&rdf_;shuttle_mission"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;manufacturer"
+	 rdfs:label="manufacturer">
+	<rdfs:domain rdf:resource="&rdf_;equipment"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;mission"
+	 rdfs:comment="Each mission instance carries administrative information."
+	 rdfs:label="mission">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;mission_crew"
+	 rdfs:label="mission_crew">
+	<rdfs:subClassOf rdf:resource="&rdf_;atomic"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;mission_experiments_and_objectives"
+	 rdfs:label="mission_experiments_and_objectives">
+	<rdfs:range rdf:resource="&rdf_;experiment"/>
+	<rdfs:domain rdf:resource="&rdf_;mission"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;mission_specialist"
+	 rdfs:label="mission_specialist">
+	<rdfs:range rdf:resource="&rdf_;astronaut"/>
+	<rdfs:domain rdf:resource="&rdf_;mission_crew"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;month"
+	 rdfs:label="month">
+	<rdfs:domain rdf:resource="&rdf_;date"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;name"
+	 rdfs:label="name">
+	<rdfs:domain rdf:resource="&rdf_;data"/>
+	<rdfs:domain rdf:resource="&rdf_;equipment"/>
+	<rdfs:domain rdf:resource="&rdf_;experiment"/>
+	<rdfs:domain rdf:resource="&rdf_;mission"/>
+	<rdfs:domain rdf:resource="&rdf_;staff"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;name_first"
+	 rdfs:label="name_first">
+	<rdfs:domain rdf:resource="&rdf_;staff"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;nationality"
+	 rdfs:label="nationality">
+	<rdfs:domain rdf:resource="&rdf_;staff"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;navigation_system"
+	 rdfs:label="navigation_system">
+	<rdfs:subClassOf rdf:resource="&rdf_;equipment"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;non-NASA"
+	 rdfs:label="non-NASA">
+	<rdfs:domain rdf:resource="&rdf_;mission_crew"/>
+	<rdfs:range rdf:resource="&rdf_;staff"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;o-ring"
+	 rdfs:label="o-ring">
+	<rdfs:subClassOf rdf:resource="&rdf_;test"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;phone"
+	 rdfs:label="phone">
+	<rdfs:domain rdf:resource="&rdf_;staff"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;physical_space"
+	 rdfs:label="physical_space">
+	<rdfs:domain rdf:resource="&rdf_;experiment"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;pilot"
+	 rdfs:label="pilot">
+	<rdfs:range rdf:resource="&rdf_;astronaut"/>
+	<rdfs:domain rdf:resource="&rdf_;mission_crew"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;piloted"
+	 rdfs:label="piloted">
+	<rdfs:domain rdf:resource="&rdf_;astronaut"/>
+	<rdfs:range rdf:resource="&rdf_;mission_crew"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;plunger"
+	 rdfs:label="plunger">
+	<rdfs:subClassOf rdf:resource="&rdf_;instrument_configuration_data"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;post-doc"
+	 rdfs:label="post-doc">
+	<rdfs:subClassOf rdf:resource="&rdf_;ground"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;power_configuration"
+	 rdfs:label="power_configuration">
+	<rdfs:domain rdf:resource="&rdf_;experiment"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;principal_investigator"
+	 rdfs:label="principal_investigator">
+	<rdfs:subClassOf rdf:resource="&rdf_;astronaut"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;procedure_profile"
+	 rdfs:label="procedure_profile">
+	<rdfs:subClassOf rdf:resource="&rdf_;specs"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;radiation_pattern"
+	 rdfs:label="radiation_pattern">
+	<rdfs:subClassOf rdf:resource="&rdf_;instrument_experience_data"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;repair_mission"
+	 rdfs:label="repair_mission">
+	<rdfs:subClassOf rdf:resource="&rdf_;shuttle_mission"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;researchTeam"
+	 rdfs:label="researchTeam">
+	<rdfs:domain rdf:resource="&rdf_;experiment"/>
+	<rdfs:range rdf:resource="&rdf_;ground"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;research_associate"
+	 rdfs:label="research_associate">
+	<rdfs:subClassOf rdf:resource="&rdf_;ground"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;responsible_for"
+	 rdfs:label="responsible_for">
+	<rdfs:domain rdf:resource="&rdf_;experiment"/>
+	<rdfs:range rdf:resource="&rdf_;principal_investigator"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;resupply_mission"
+	 rdfs:label="resupply_mission">
+	<rdfs:subClassOf rdf:resource="&rdf_;shuttle_mission"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;retired"
+	 rdfs:comment="This flags if the equipment has exceeded its lifespan."
+	 rdfs:label="retired">
+	<rdfs:domain rdf:resource="&rdf_;equipment"/>
+	<rdfs:domain rdf:resource="&rdf_;staff"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;return_cargo"
+	 rdfs:label="return_cargo">
+	<rdfs:range rdf:resource="&rdf_;equipment"/>
+	<rdfs:domain rdf:resource="&rdf_;mission"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;return_date"
+	 rdfs:label="return_date">
+	<rdfs:range rdf:resource="&rdf_;date"/>
+	<rdfs:domain rdf:resource="&rdf_;mission"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;robotic_arm"
+	 rdfs:label="robotic_arm">
+	<rdfs:subClassOf rdf:resource="&rdf_;equipment"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;rocket"
+	 rdfs:label="rocket">
+	<rdfs:subClassOf rdf:resource="&rdf_;equipment"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;rocketScience_Slot_30066"
+	 rdfs:label="rocketScience_Slot_30066">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;rocket_capsule"
+	 rdfs:label="rocket_capsule">
+	<rdfs:subClassOf rdf:resource="&rdf_;rocket"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;satellite"
+	 rdfs:label="satellite">
+	<rdfs:subClassOf rdf:resource="&rdf_;equipment"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;satellite_launch_mission"
+	 rdfs:label="satellite_launch_mission">
+	<rdfs:subClassOf rdf:resource="&rdf_;shuttle_mission"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;scientist"
+	 rdfs:label="scientist">
+	<rdfs:subClassOf rdf:resource="&rdf_;astronaut"/>
+	<rdfs:subClassOf rdf:resource="&rdf_;ground"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;served_on"
+	 rdfs:label="served_on">
+	<rdfs:domain rdf:resource="&rdf_;astronaut"/>
+	<rdfs:range rdf:resource="&rdf_;mission_crew"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;sex"
+	 rdfs:label="sex">
+	<rdfs:domain rdf:resource="&rdf_;staff"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;shuttle"
+	 rdfs:label="shuttle">
+	<rdfs:subClassOf rdf:resource="&rdf_;equipment"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;shuttle_launched"
+	 rdfs:label="shuttle_launched">
+	<rdfs:range rdf:resource="&rdf_;date"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;shuttle_mission"
+	 rdfs:label="shuttle_mission">
+	<rdfs:subClassOf rdf:resource="&rdf_;mission"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;shuttle_mission_data"
+	 rdfs:label="shuttle_mission_data">
+	<rdfs:subClassOf rdf:resource="&rdf_;data"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;soil_spectral"
+	 rdfs:label="soil_spectral">
+	<rdfs:subClassOf rdf:resource="&rdf_;instrument_experience_data"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;space_laboratory_and_support"
+	 rdfs:label="space_laboratory_and_support">
+	<rdfs:subClassOf rdf:resource="&rdf_;equipment"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;specialization"
+	 rdfs:label="specialization">
+	<rdfs:domain rdf:resource="&rdf_;astronaut"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdfs:Class rdf:about="&rdf_;specs"
+	 rdfs:label="specs">
+	<rdfs:subClassOf rdf:resource="&rdf_;equipment_data"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;spectral_analyzer"
+	 rdfs:label="spectral_analyzer">
+	<rdfs:subClassOf rdf:resource="&rdf_;instrument_configuration_data"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;staff"
+	 rdfs:label="staff">
+	<rdfs:subClassOf rdf:resource="&rdf_;basic_type"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;stress_test"
+	 rdfs:label="stress_test">
+	<rdfs:subClassOf rdf:resource="&rdf_;test"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;supply_unit"
+	 rdfs:label="supply_unit">
+	<rdfs:subClassOf rdf:resource="&rdf_;equipment"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;test"
+	 rdfs:label="test">
+	<rdfs:subClassOf rdf:resource="&rdf_;equipment_data"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;test_date"
+	 rdfs:label="test_date">
+	<rdfs:range rdf:resource="&rdf_;date"/>
+	<rdfs:domain rdf:resource="&rdf_;test"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;test_result"
+	 rdfs:label="test_result">
+	<rdfs:domain rdf:resource="&rdf_;test"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;title"
+	 rdfs:label="title">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;type"
+	 rdfs:label="type">
+	<rdfs:domain rdf:resource="&rdf_;booster"/>
+	<rdfs:domain rdf:resource="&rdf_;rocket"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;uid"
+	 rdfs:comment="Institution ID"
+	 rdfs:label="uid">
+	<rdfs:domain rdf:resource="&rdf_;staff"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;veteran_of"
+	 rdfs:label="veteran_of">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;year"
+	 rdfs:label="year">
+	<rdfs:domain rdf:resource="&rdf_;date"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+</rdf:RDF>

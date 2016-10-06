@@ -1,0 +1,896 @@
+; Wed Oct 19 19:47:50 CDT 2005
+; 
+;+ (version "3.1.1")
+;+ (build "Build 216")
+
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(single-slot name_first
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot crew_of
+		(type INSTANCE)
+;+		(allowed-classes mission)
+;+		(cardinality 1 1)
+;+		(inverse-slot crew)
+		(create-accessor read-write))
+	(single-slot launch_vehicle
+		(type INSTANCE)
+;+		(allowed-classes equipment)
+;+		(cardinality 1 1)
+;+		(inverse-slot launched_in)
+		(create-accessor read-write))
+	(multislot non-NASA
+		(type INSTANCE)
+;+		(allowed-classes staff)
+;+		(inverse-slot flew_on)
+		(create-accessor read-write))
+	(single-slot launch_date
+		(type INSTANCE)
+;+		(allowed-classes date)
+;+		(cardinality 1 1)
+;+		(inverse-slot shuttle_launched)
+		(create-accessor read-write))
+	(multislot commanded
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(inverse-slot commander)
+		(create-accessor read-write))
+	(multislot itsNav
+		(type INSTANCE)
+;+		(allowed-classes navigation_system)
+		(create-accessor read-write))
+	(single-slot uid
+;+		(comment "Institution ID")
+		(type STRING)
+		(default "0000000000")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot biography
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot power_configuration
+		(type STRING)
+		(default "voltage=10 current=1 profile=12")
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot month
+		(type INTEGER)
+		(range 1 12)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot year
+		(type INTEGER)
+		(range 1930 %3FVARIABLE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot description
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot specialization
+		(type SYMBOL)
+		(allowed-values Geology Astronomy Mathematics Biology Computer_Science Video_Games Physics Education Ecology Chemistry Medicine Engineering Aerospace_Sciences)
+		(create-accessor read-write))
+	(single-slot commander
+		(type INSTANCE)
+;+		(allowed-classes astronaut)
+;+		(cardinality 1 1)
+;+		(inverse-slot commanded)
+		(create-accessor read-write))
+	(single-slot return_date
+		(type INSTANCE)
+;+		(allowed-classes date)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot served_on
+		(type INSTANCE)
+;+		(allowed-classes mission_crew)
+;+		(inverse-slot mission_specialist)
+		(create-accessor read-write))
+	(single-slot manufacturer
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot veteran_of
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot booster_chain
+		(type INSTANCE)
+;+		(allowed-classes booster)
+		(cardinality 2 2)
+;+		(inverse-slot booster_for)
+		(create-accessor read-write))
+	(single-slot rocketScience_Slot_30066
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot home_institution
+		(type STRING)
+		(default "NASA")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot name_
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot mission_specialist
+		(type INSTANCE)
+;+		(allowed-classes principal_investigator scientist)
+;+		(inverse-slot served_on)
+		(create-accessor read-write))
+	(multislot responsible_for
+		(type INSTANCE)
+;+		(allowed-classes principal_investigator)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot fuel_chain
+		(type INSTANCE)
+;+		(allowed-classes fuel_tank)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot goal
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot email
+		(type STRING)
+		(default "dontbugme@nasa.gov")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot phone
+		(type STRING)
+		(default "555-555-5555")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot crew
+;+		(comment "Crew for this particular mission.")
+		(type INSTANCE)
+;+		(allowed-classes mission_crew)
+;+		(cardinality 1 1)
+;+		(inverse-slot crew_of)
+		(create-accessor read-write))
+	(multislot physical_space
+		(type STRING)
+		(default "10 x 10 x 10")
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot day_of_month
+		(type INTEGER)
+		(range 1 31)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot shuttle_launched
+		(type INSTANCE)
+;+		(allowed-classes date)
+;+		(cardinality 0 1)
+;+		(inverse-slot launch_date)
+		(create-accessor read-write))
+	(single-slot fax_number
+		(type STRING)
+		(default "555-555-5555")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot associated_mission
+		(type INSTANCE)
+;+		(allowed-classes mission)
+;+		(inverse-slot mission_experiments_and_objectives)
+		(create-accessor read-write))
+	(multislot cargo
+;+		(comment "The shuttle can carry mission cargo.")
+		(type INSTANCE)
+;+		(allowed-classes equipment)
+		(create-accessor read-write))
+	(single-slot in_use
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot test_date
+		(type INSTANCE)
+;+		(allowed-classes date)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot pilot
+		(type INSTANCE)
+;+		(allowed-classes astronaut)
+		(cardinality 1 2)
+;+		(inverse-slot piloted)
+		(create-accessor read-write))
+	(multislot experimental_data_runs
+;+		(comment "The actual data produced by the experiment.")
+		(type INSTANCE)
+;+		(allowed-classes data)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(multislot mission_experiments_and_objectives
+		(type INSTANCE)
+;+		(allowed-classes experiment)
+;+		(inverse-slot associated_mission)
+		(create-accessor read-write))
+	(single-slot institution
+		(type STRING)
+		(default "Institute of Higher Learning")
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot flew_on
+;+		(comment "The astronaut flew on this mission but was nto a direct member of the NASA team")
+		(type INSTANCE)
+;+		(allowed-classes mission_crew)
+;+		(cardinality 0 1)
+;+		(inverse-slot non-NASA)
+		(create-accessor read-write))
+	(single-slot id_number
+;+		(comment "The ID number for NASA internal records.")
+		(type STRING)
+		(default "0000000000")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot test_result
+		(type SYMBOL)
+		(allowed-values pass fail inconclusive)
+		(default inconclusive)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot date_of_birth
+		(type INSTANCE)
+;+		(allowed-classes date)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot launch_history
+		(type INSTANCE)
+;+		(allowed-classes date)
+		(create-accessor read-write))
+	(single-slot sex
+		(type SYMBOL)
+		(allowed-values M F)
+		(default M)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot launched_in
+		(type INSTANCE)
+;+		(allowed-classes shuttle_mission)
+;+		(inverse-slot launch_vehicle)
+		(create-accessor read-write))
+	(single-slot day
+;+		(comment "Day of the week.")
+		(type SYMBOL)
+		(allowed-values Monday Tuesday Wednesday Thursday Friday Saturday Sunday)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot title
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot researchTeam
+		(type INSTANCE)
+;+		(allowed-classes ground)
+		(default [rocketScience_Instance_30042] [rocketScience_Instance_30040] [rocketScience_Instance_30041])
+		(create-accessor read-write))
+	(single-slot booster_for
+		(type INSTANCE)
+;+		(allowed-classes shuttle)
+;+		(cardinality 0 1)
+;+		(inverse-slot booster_chain)
+		(create-accessor read-write))
+	(single-slot nationality
+		(type SYMBOL)
+		(allowed-values France USA United_Kingdom Germany FSSR Japan China Poland Italy Spain Canada)
+		(default USA)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot retired
+;+		(comment "This flags if the equipment has exceeded its lifespan.")
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot current_mission
+		(type INSTANCE)
+;+		(allowed-classes mission)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot itsData
+		(type INSTANCE)
+;+		(allowed-classes data)
+		(create-accessor read-write))
+	(multislot piloted
+		(type INSTANCE)
+;+		(allowed-classes mission_crew)
+;+		(inverse-slot pilot)
+		(create-accessor read-write))
+	(multislot chief_tester
+		(type INSTANCE)
+;+		(allowed-classes staff)
+		(create-accessor read-write))
+	(multislot return_cargo
+		(type INSTANCE)
+;+		(allowed-classes equipment)
+		(create-accessor read-write))
+	(single-slot SSN
+;+		(comment "Social Security Number")
+		(type STRING)
+		(default "123-45-6789")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot type
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass mission "Each mission instance carries administrative information."
+	(is-a USER)
+	(role concrete)
+	(single-slot crew
+;+		(comment "Crew for this particular mission.")
+		(type INSTANCE)
+;+		(allowed-classes mission_crew)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot cargo
+;+		(comment "The shuttle can carry mission cargo.")
+		(type INSTANCE)
+;+		(allowed-classes equipment)
+		(create-accessor read-write))
+	(single-slot id_number
+;+		(comment "The ID number for NASA internal records.")
+		(type STRING)
+		(default "0000000000")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot launch_date
+		(type INSTANCE)
+;+		(allowed-classes date)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot return_date
+		(type INSTANCE)
+;+		(allowed-classes date)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot name_
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot launch_vehicle
+		(type INSTANCE)
+;+		(allowed-classes equipment)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot mission_experiments_and_objectives
+		(type INSTANCE)
+;+		(allowed-classes experiment)
+		(create-accessor read-write))
+	(single-slot description
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot return_cargo
+		(type INSTANCE)
+;+		(allowed-classes equipment)
+		(create-accessor read-write)))
+
+(defclass exploratory_mission
+	(is-a mission)
+	(role concrete))
+
+(defclass shuttle_mission
+	(is-a mission)
+	(role concrete)
+	(single-slot launch_vehicle
+		(type INSTANCE)
+;+		(allowed-classes shuttle)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass satellite_launch_mission
+	(is-a shuttle_mission)
+	(role concrete)
+	(multislot cargo
+;+		(comment "The shuttle can carry mission cargo.")
+		(type INSTANCE)
+;+		(allowed-classes equipment)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot launch_vehicle
+		(type INSTANCE)
+;+		(allowed-classes shuttle)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass repair_mission
+	(is-a shuttle_mission)
+	(role concrete)
+	(single-slot launch_vehicle
+		(type INSTANCE)
+;+		(allowed-classes shuttle)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass resupply_mission
+	(is-a shuttle_mission)
+	(role concrete)
+	(single-slot launch_vehicle
+		(type INSTANCE)
+;+		(allowed-classes shuttle)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass basic_type
+	(is-a USER)
+	(role abstract))
+
+(defclass equipment
+	(is-a basic_type)
+	(role abstract)
+	(single-slot id_number
+;+		(comment "The ID number for NASA internal records.")
+		(type STRING)
+		(default "0000000000")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot name_
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot manufacturer
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot description
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot retired
+;+		(comment "This flags if the equipment has exceeded its lifespan.")
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass rocket
+	(is-a equipment)
+	(role concrete)
+	(single-slot type
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot itsNav
+		(type INSTANCE)
+;+		(allowed-classes navigation_system)
+		(create-accessor read-write)))
+
+(defclass rocket_capsule
+	(is-a rocket)
+	(role concrete))
+
+(defclass shuttle
+	(is-a equipment)
+	(role concrete)
+	(single-slot current_mission
+		(type INSTANCE)
+;+		(allowed-classes mission)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot booster_chain
+		(type INSTANCE)
+;+		(allowed-classes booster)
+		(cardinality 2 2)
+		(create-accessor read-write))
+	(multislot launched_in
+		(type INSTANCE)
+;+		(allowed-classes shuttle_mission)
+		(create-accessor read-write))
+	(single-slot fuel_chain
+		(type INSTANCE)
+;+		(allowed-classes fuel_tank)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass booster
+	(is-a equipment)
+	(role concrete)
+	(single-slot type
+		(type STRING)
+		(default "Shuttle Rocket Booster Liquid Fuel")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot id_number
+;+		(comment "The ID number for NASA internal records.")
+		(type STRING)
+		(default "SRB-")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot manufacturer
+		(type STRING)
+		(default "Morton Thiokol Corporation")
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot booster_for
+		(type INSTANCE)
+;+		(allowed-classes shuttle)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass satellite
+	(is-a equipment)
+	(role concrete)
+	(multislot itsNav
+		(type INSTANCE)
+;+		(allowed-classes navigation_system)
+		(create-accessor read-write)))
+
+(defclass navigation_system
+	(is-a equipment)
+	(role concrete))
+
+(defclass fuel_tank
+	(is-a equipment)
+	(role concrete)
+	(single-slot id_number
+;+		(comment "The ID number for NASA internal records.")
+		(type STRING)
+		(default "ET-")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot manufacturer
+		(type STRING)
+		(default "Lockheed Martin")
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass supply_unit
+	(is-a equipment)
+	(role concrete))
+
+(defclass robotic_arm
+	(is-a equipment)
+	(role concrete))
+
+(defclass space_laboratory_and_support
+	(is-a equipment)
+	(role concrete))
+
+(defclass data
+	(is-a basic_type)
+	(role abstract)
+	(single-slot name_
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass instrument_experience_data
+	(is-a data)
+	(role abstract))
+
+(defclass computer_image
+	(is-a instrument_experience_data)
+	(role concrete))
+
+(defclass soil_spectral
+	(is-a instrument_experience_data)
+	(role concrete))
+
+(defclass radiation_pattern
+	(is-a instrument_experience_data)
+	(role concrete))
+
+(defclass landscape_sensory
+	(is-a instrument_experience_data)
+	(role concrete))
+
+(defclass instrument_configuration_data
+	(is-a data)
+	(role abstract))
+
+(defclass plunger
+	(is-a instrument_configuration_data)
+	(role concrete))
+
+(defclass laser
+	(is-a instrument_configuration_data)
+	(role concrete))
+
+(defclass spectral_analyzer
+	(is-a instrument_configuration_data)
+	(role concrete))
+
+(defclass equipment_data
+	(is-a data)
+	(role abstract))
+
+(defclass test
+	(is-a equipment_data)
+	(role abstract)
+	(single-slot test_date
+		(type INSTANCE)
+;+		(allowed-classes date)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot test_result
+		(type SYMBOL)
+		(allowed-values pass fail inconclusive)
+		(default inconclusive)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot chief_tester
+		(type INSTANCE)
+;+		(allowed-classes staff)
+		(create-accessor read-write)))
+
+(defclass hull_integrity
+	(is-a test)
+	(role concrete))
+
+(defclass o-ring
+	(is-a test)
+	(role concrete))
+
+(defclass heat_resistance
+	(is-a test)
+	(role concrete))
+
+(defclass stress_test
+	(is-a test)
+	(role concrete))
+
+(defclass specs
+	(is-a equipment_data)
+	(role abstract))
+
+(defclass equipment_profile
+	(is-a specs)
+	(role concrete))
+
+(defclass procedure_profile
+	(is-a specs)
+	(role concrete))
+
+(defclass shuttle_mission_data
+	(is-a data)
+	(role concrete)
+	(single-slot description
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass staff
+	(is-a basic_type)
+	(role abstract)
+	(single-slot name_first
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot name_
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot phone
+		(type STRING)
+		(default "555-555-5555")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot nationality
+		(type SYMBOL)
+		(allowed-values France USA United_Kingdom Germany FSSR Japan China Poland Italy Spain Canada)
+		(default USA)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot uid
+;+		(comment "Institution ID")
+		(type STRING)
+		(default "0000000000")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot retired
+;+		(comment "This flags if the equipment has exceeded its lifespan.")
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot sex
+		(type SYMBOL)
+		(allowed-values M F)
+		(default M)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot biography
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot date_of_birth
+		(type INSTANCE)
+;+		(allowed-classes date)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot SSN
+;+		(comment "Social Security Number")
+		(type STRING)
+		(default "123-45-6789")
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass astronaut
+	(is-a staff)
+	(role concrete)
+	(single-slot flew_on
+;+		(comment "The astronaut flew on this mission but was nto a direct member of the NASA team")
+		(type INSTANCE)
+;+		(allowed-classes mission_crew)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot served_on
+		(type INSTANCE)
+;+		(allowed-classes mission_crew)
+		(create-accessor read-write))
+	(multislot commanded
+		(type INSTANCE)
+;+		(allowed-classes)
+		(create-accessor read-write))
+	(multislot specialization
+		(type SYMBOL)
+		(allowed-values Geology Astronomy Mathematics Biology Computer_Science Video_Games Physics Education Ecology Chemistry Medicine Engineering Aerospace_Sciences)
+		(create-accessor read-write))
+	(multislot piloted
+		(type INSTANCE)
+;+		(allowed-classes mission_crew)
+		(create-accessor read-write)))
+
+(defclass principal_investigator
+	(is-a astronaut)
+	(role concrete)
+	(single-slot id_number
+;+		(comment "The ID number for NASA internal records.")
+		(type STRING)
+		(default "0000000000")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot home_institution
+		(type STRING)
+		(default "NASA")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot email
+		(type STRING)
+		(default "dontbugme@nasa.gov")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot fax_number
+		(type STRING)
+		(default "555-555-5555")
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass ground
+	(is-a staff)
+	(role concrete)
+	(single-slot institution
+		(type STRING)
+		(default "Institute of Higher Learning")
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass graduate_assist
+	(is-a ground)
+	(role concrete))
+
+(defclass research_associate
+	(is-a ground)
+	(role concrete))
+
+(defclass post-doc
+	(is-a ground)
+	(role concrete))
+
+(defclass scientist
+	(is-a ground astronaut)
+	(role concrete))
+
+(defclass atomic
+	(is-a basic_type)
+	(role abstract))
+
+(defclass date
+	(is-a atomic)
+	(role concrete)
+	(single-slot day
+;+		(comment "Day of the week.")
+		(type SYMBOL)
+		(allowed-values Monday Tuesday Wednesday Thursday Friday Saturday Sunday)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot month
+		(type INTEGER)
+		(range 1 12)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot day_of_month
+		(type INTEGER)
+		(range 1 31)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot year
+		(type INTEGER)
+		(range 1930 %3FVARIABLE)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass mission_crew
+	(is-a atomic)
+	(role concrete)
+	(single-slot crew_of
+		(type INSTANCE)
+;+		(allowed-classes mission)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot pilot
+		(type INSTANCE)
+;+		(allowed-classes astronaut)
+		(cardinality 1 2)
+		(create-accessor read-write))
+	(multislot non-NASA
+		(type INSTANCE)
+;+		(allowed-classes staff)
+		(create-accessor read-write))
+	(multislot mission_specialist
+		(type INSTANCE)
+;+		(allowed-classes principal_investigator scientist)
+		(create-accessor read-write))
+	(single-slot commander
+		(type INSTANCE)
+;+		(allowed-classes astronaut)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass experiment
+	(is-a USER)
+	(role concrete)
+	(multislot power_configuration
+		(type STRING)
+		(default "voltage=10 current=1 profile=12")
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(multislot associated_mission
+		(type INSTANCE)
+;+		(allowed-classes mission)
+		(create-accessor read-write))
+	(multislot researchTeam
+		(type INSTANCE)
+;+		(allowed-classes ground)
+		(default [rocketScience_Instance_30042] [rocketScience_Instance_30040] [rocketScience_Instance_30041])
+		(create-accessor read-write))
+	(single-slot id_number
+;+		(comment "The ID number for NASA internal records.")
+		(type STRING)
+		(default "0000000000")
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot physical_space
+		(type STRING)
+		(default "10 x 10 x 10")
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot name_
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot experimental_data_runs
+;+		(comment "The actual data produced by the experiment.")
+		(type INSTANCE)
+;+		(allowed-classes data)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(multislot responsible_for
+		(type INSTANCE)
+;+		(allowed-classes principal_investigator)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write)))
